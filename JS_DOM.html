@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="JS_DOM.css">
+</head>
+<body>
+  <div id="div2">
+    <h1 class="Best_V" id="h1"></h1>
+    <h1 class="Time" id="h2"></h1>
+  </div>
+  
+  <div class="button-container">
+    <button onclick="changeBackground('red')" class="button">Change BG</button>
+    <button onclick="goodVibes('')"class="button" id="button_2">Good Vibes</button>
+    <button onclick="TimeFunc()"class="button" id="button_3">Time</button>
+    <button onclick="ChangePIC()" class="button" id="button_4">Change Picture</button>
+    <button onclick="HidePIC()" class="button" id="button_5">Hide Picture</button>
+    <button onclick="ShowPIC()" class="button" id="button_5">Show Picture</button>
+  </div>
+
+  <div id="PicDiv">
+    <img src="nissan-skyline.jpg" height="22%" width="20%" id="skyline_Picture">
+  </div>  
+
+  <script>
+    function changeBackground(color){
+      document.querySelector('body').style.backgroundColor = color;
+    }
+    
+    document.getElementById('button_2').addEventListener('click', positive)
+
+    function positive(){
+      document.getElementById("h1").innerHTML = "Var den bästa verisionen av dig själv";
+    }
+
+    function HidePIC(){
+      var PIC = document.getElementById("PicDiv")
+      PIC.style.display = "none";
+    }
+
+    function ShowPIC(){
+      var PIC = document.getElementById("PicDiv")
+      PIC.style.display = "block";
+    }
+
+    function ChangePIC() {
+      var img = document.getElementById("skyline_Picture");
+      if (img.src.includes("nissan-skyline.jpg")) {
+        img.src = "minicooper.jpg"; 
+      } else {
+        img.src = "nissan-skyline.jpg";
+      }
+    }
+
+    function TimeFunc(){
+      var currentTime = new Date();
+      var hours = currentTime.getHours();
+      var minutes = currentTime.getMinutes();
+      var seconds = currentTime.getSeconds();
+
+      var displayElement = document.getElementById('h2');
+      displayElement.textContent = "Tiden just nu är " + hours + ":" + minutes + ":" + seconds;
+    }
+  </script>
+</body>
+</html>
